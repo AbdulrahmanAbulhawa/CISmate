@@ -1,66 +1,73 @@
-# CISmate – Backend
+# CISmate — Backend (Spring Boot, Multi-Module)
 
-**CISmate** is an AI-powered academic planning backend built with **Spring Boot**, designed to help university students plan their academic journey, make informed course decisions, and track progress efficiently.
+Backend for **CISmate**, a university companion app with two roles: **Student** and **Admin**.
 
-This repository contains the **backend services** that power CISmate’s core features.
-
----
-
-## 🚀 Features Overview
-
-CISmate is built as a modular backend, where each module is responsible for a specific domain:
-
-### 🔐 Authentication
-Handles user registration, login, and secure access to APIs using role-based authorization.
-
-### 📅 Schedule
-Generates optimized semester schedules based on prerequisites, credit limits, and academic constraints.
-
-### 📊 GPA
-Calculates GPA and cumulative GPA, with detailed grade breakdowns and academic performance insights.
-
-### 🤖 Chat_Bot
-AI-powered assistant that answers questions about courses, schedules, and academic planning using system data.
-
-### 🎓 Course_Professor
-Manages course and professor information, including difficulty level, assessments, labs, and learning resources.
-
-### 💼 OpportunitiesBoard
-Provides a board for internships and academic opportunities, with filtering and structured details.
-
-### 🗓️ Calendar
-Organizes academic events, reminders, and important dates linked to the student’s plan.
-
-### 🧭 career
-Offers career guidance content mapped to academic tracks, skills, and relevant courses.
-
-### ▶️ runner
-Main Spring Boot entry module that wires all services together and exposes REST APIs.
+This repository contains the backend services (REST APIs) that power CISmate’s features. The project is built as a **multi-module Maven** setup where `runner` is the Spring Boot entry module and the other modules represent domains/features.
 
 ---
 
-## 🛠️ Tech Stack
+## What CISmate does
 
-- **Java 21**
-- **Spring Boot 3**
-- **Spring Data JPA**
-- **PostgreSQL**
-- **Spring AI / OpenAI (Chatbot)**
-- **Maven**
-- **RESTful APIs**
+### Student
+- **Home dashboard:** profile (name, year, GPA, completed hours, study plan)
+- **Home menu tools:** print/export schedule, GPA calculator (utility), resume builder, profile update
+- **Schedule generator (core):** generate next-semester schedules using filters (semester, year, difficulty, course count, electives count, elective tags, constraints)
+- **Assistant:** chatbot for university/app questions
+- **Explore:** courses ↔ professors (linked both ways)
+- **Opportunities:** group-finding posts (no in-app messaging; contact info) + internships (admin-posted)
+- **Careers:** browse/filter + **Best Fit** recommendation (based on grades per subject)
+- **Calendar:** personal + college-wide events
+
+### Admin
+Manages users, courses, professors, careers, internships, and college events (visible to all students).
 
 ---
 
-## ⚙️ Project Structure
+## Tech stack
+- Java 21
+- Spring Boot 3.5.x
+- Spring Web
+- Spring Data JPA
+- PostgreSQL (pgvector image used for Spring AI vector store)
+- Spring Security (JWT, stateless, role-based access)
+- Spring AI + OpenAI (chatbot)
+- Maven (multi-module)
+
+---
+
+## Project structure
 
 CISmate/
-├── Authentication/
-├── Calendar/
-├── Chat_Bot/
-├── Course_Professor/
-├── GPA/
-├── OpportunitiesBoard/
-├── Schedule/
-├── career/
-├── runner/
-└── pom.xml
+- runner/ (Spring Boot entry point)
+- Authentication/
+- Calendar/
+- Chat_Bot/
+- Course_Professor/
+- GPA/
+- OpportunitiesBoard/
+- Schedule/
+- career/
+- pom.xml
+
+---
+
+## Roles & authorization (high level)
+- `ADMIN`: protected endpoints under `/api/admin/**`
+- Other endpoints require a valid JWT (`Authorization: Bearer <token>`)
+
+Public endpoints:
+- `POST /api/register`
+- `POST /login`
+- `GET  /api/courses/getAllCourseNames`
+
+---
+
+## Run locally
+
+### Prerequisites
+- Java 21
+- Docker
+
+### Start DB
+```bash
+docker compose up -d
