@@ -60,14 +60,3 @@ Public endpoints:
 - `POST /login`
 - `GET  /api/courses/getAllCourseNames`
 
----
-
-## Run locally
-
-### Prerequisites
-- Java 21
-- Docker
-
-### Start DB
-```bash
-docker compose up -d
