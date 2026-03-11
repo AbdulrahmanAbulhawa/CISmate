@@ -1,6 +1,6 @@
 package graduation.project.AuthBasics.config;
 
-import graduation.project.AuthBasics.service.JWTservice;
+import graduation.project.AuthBasics.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
 
-    private final JWTservice jwtService;
+    private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
     @Override

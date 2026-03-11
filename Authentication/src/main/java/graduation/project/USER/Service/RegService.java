@@ -13,7 +13,7 @@ import graduation.project.USER.models.user.UserCompletedCourse;
 import graduation.project.USER.models.user.UserProfile;
 import graduation.project.USER.repo.UserCompletedCourseRepo;
 import graduation.project.USER.repo.UserRepo;
-import graduation.project.AuthBasics.service.JWTservice;
+import graduation.project.AuthBasics.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -38,7 +38,7 @@ public class RegService {
     private final Course_Repo courseRepo;
     private final UserCompletedCourseRepo completedCourseRepo; // NEW
     private final AuthenticationManager authenticationManager;
-    private final JWTservice jwtService;
+    private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
 
     /* ================= Self-register / login / self-info ================= */
