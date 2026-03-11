@@ -22,6 +22,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -38,6 +39,7 @@ public class RegService {
     private final UserCompletedCourseRepo completedCourseRepo; // NEW
     private final AuthenticationManager authenticationManager;
     private final JWTservice jwtService;
+    private final PasswordEncoder passwordEncoder;
 
     /* ================= Self-register / login / self-info ================= */
 
@@ -49,7 +51,7 @@ public class RegService {
 
         UserProfile user = UserProfile.builder()
                 .email(req.email())
-                .password(req.password()) // DEV ONLY (plain). Use encoder in prod.
+                .password(passwordEncoder.encode(req.password())) // DEV ONLY (plain). Use encoder in prod.
                 .firstName(req.firstName())
                 .lastName(req.lastName())
                 .major(req.major() != null ? req.major() : "CIS")
