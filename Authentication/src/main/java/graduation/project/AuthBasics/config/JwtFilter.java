@@ -1,6 +1,10 @@
 package graduation.project.AuthBasics.config;
 
 import graduation.project.AuthBasics.service.JwtService;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.UnsupportedJwtException;
+import io.jsonwebtoken.security.SignatureException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +31,6 @@ public class JwtFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
-        // ✅ VERY IMPORTANT: let CORS preflight pass
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             chain.doFilter(request, response);
             return;
@@ -35,7 +38,6 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String authHeader = request.getHeader("Authorization");
 
-        // No token? Just continue. Security rules decide later if it’s allowed.
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             chain.doFilter(request, response);
             return;
@@ -46,8 +48,8 @@ public class JwtFilter extends OncePerRequestFilter {
 
         try {
             username = jwtService.extractUserName(token);
-        } catch (Exception e) {
-            // invalid token -> continue without auth (will be rejected if endpoint requires auth)
+        } catch (ExpiredJwtException | MalformedJwtException | UnsupportedJwtException |
+                 SignatureException | IllegalArgumentException e) {
             chain.doFilter(request, response);
             return;
         }
