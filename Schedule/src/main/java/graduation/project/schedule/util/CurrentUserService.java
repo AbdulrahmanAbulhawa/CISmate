@@ -1,6 +1,6 @@
 package graduation.project.schedule.util;
 
-import graduation.project.USER.models.user.UserProfile;
+import graduation.project.Users.Models.user.UserProfile;
 import graduation.project.schedule.repo.UserProfileReadRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

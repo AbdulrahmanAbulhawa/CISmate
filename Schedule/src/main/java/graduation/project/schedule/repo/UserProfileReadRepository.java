@@ -1,6 +1,6 @@
 package graduation.project.schedule.repo;
 
-import graduation.project.USER.models.user.UserProfile;
+import graduation.project.Users.Models.user.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

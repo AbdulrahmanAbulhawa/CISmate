@@ -1,7 +1,7 @@
 // File: Schedule/src/main/java/graduation/project/schedule/repo/UserCompletedCourseRepository.java
 package graduation.project.schedule.repo;
 
-import graduation.project.USER.models.user.UserCompletedCourse;
+import graduation.project.Users.Models.user.UserCompletedCourse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

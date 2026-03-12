@@ -1,8 +1,8 @@
 // File: src/main/java/graduation/project/service/CareerService.java
 package graduation.project.service;
 
-import graduation.project.USER.models.user.UserCompletedCourse;
-import graduation.project.USER.repo.UserCompletedCourseRepo;
+import graduation.project.Users.Models.user.UserCompletedCourse;
+import graduation.project.Users.Repo.User.UserCompletedCourseRepo;
 import graduation.project.dto.CareerDetailsDto;
 import graduation.project.dto.CareerNameDto;
 import graduation.project.model.CareerConceptEntity;

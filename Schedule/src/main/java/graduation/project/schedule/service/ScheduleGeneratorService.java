@@ -1,8 +1,8 @@
 // File: Schedule/src/main/java/graduation/project/schedule/service/ScheduleGeneratorService.java
 package graduation.project.schedule.service;
 
-import graduation.project.USER.models.user.UserProfile;
-import graduation.project.USER.repo.UserRepo;
+import graduation.project.Users.Models.user.UserProfile;
+import graduation.project.Users.Repo.User.UserRepo;
 import graduation.project.model.Items.Prerequisites;
 import graduation.project.model.course.CourseEntity;
 import graduation.project.schedule.domain.enums.CompactnessPreference;

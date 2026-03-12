@@ -2,8 +2,8 @@ package graduation.project.AuthBasics.service;
 
 
 import graduation.project.AuthBasics.models.UserPrinciple;
-import graduation.project.USER.models.user.UserProfile;
-import graduation.project.USER.repo.UserRepo;
+import graduation.project.Users.Models.user.UserProfile;
+import graduation.project.Users.Repo.User.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

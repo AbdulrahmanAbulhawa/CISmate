@@ -1,6 +1,6 @@
 package graduation.project.AuthBasics.models;
 
-import graduation.project.USER.models.user.UserProfile;
+import graduation.project.Users.Models.user.UserProfile;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
