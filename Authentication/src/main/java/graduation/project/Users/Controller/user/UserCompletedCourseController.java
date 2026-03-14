@@ -1,4 +1,4 @@
-package graduation.project.Users.Controller;
+package graduation.project.Users.Controller.user;
 
 import graduation.project.Users.Models.records.CompletedCourseGradeDTO;
 import graduation.project.Users.Models.records.CompletedCourseGradeRequest;

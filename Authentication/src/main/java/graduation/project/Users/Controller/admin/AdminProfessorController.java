@@ -1,4 +1,4 @@
-package graduation.project.Users.Controller;
+package graduation.project.Users.Controller.admin;
 
 import graduation.project.Users.Service.AdminService.AdminProfService;
 import graduation.project.Users.Service.AdminService.AdminProfService.ProfessorAdminDTO;
