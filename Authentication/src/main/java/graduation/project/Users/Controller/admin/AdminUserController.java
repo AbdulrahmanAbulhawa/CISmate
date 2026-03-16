@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/api/admin")
 public class AdminUserController {
 
     private final AdminUserService adminUserService;
@@ -19,27 +20,27 @@ public class AdminUserController {
         this.userProfileService = userProfileService;
     }
 
-    @GetMapping("/api/admin/getAllUsers")
+    @GetMapping("/getAllUsers")
     public List<String> getAllUsers() {
         return adminUserService.getAllUsers();
     }
 
-    @GetMapping("/api/admin/getUser/{email:.+}")
+    @GetMapping("/getUser/{email:.+}")
     public UserDTO getUser(@PathVariable String email) {
         return userProfileService.userInfo(email);
     }
 
-    @PostMapping("/api/admin/users")
+    @PostMapping("/users")
     public UserDTO adminCreateUser(@RequestBody RegistrationRequest req) {
         return adminUserService.adminCreateUser(req);
     }
 
-    @PutMapping("/api/admin/users/{email:.+}")
+    @PutMapping("/{email:.+}")
     public UserDTO adminUpdateUser(@PathVariable String email, @RequestBody UserDTO req) {
         return adminUserService.adminUpdateUser(email, req);
     }
 
-    @DeleteMapping("/api/admin/users/{email:.+}")
+    @DeleteMapping("/{email:.+}")
     public void adminDeleteUser(@PathVariable String email) {
         adminUserService.adminDeleteUser(email);
     }
