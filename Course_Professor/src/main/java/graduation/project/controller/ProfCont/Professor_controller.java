@@ -17,7 +17,7 @@ public class Professor_controller {
     }
 
     @GetMapping("/getAllProfessors")
-    public List<String> getAllProfessors(){
+    public List<ProfessorDTO> getAllProfessors(){
         return service.GetAllProfessors();
     }
 

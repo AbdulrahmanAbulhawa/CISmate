@@ -21,7 +21,7 @@
             this.repo = repo;
         }
 
-        public List<String> GetAllProfessors(){
+        public List<ProfessorDTO> GetAllProfessors(){
             return repo.GetAllProfessors();
         }
 
@@ -41,6 +41,7 @@
             }
 
             return new ProfessorDTO(
+                    p.getId(),
                     p.getName(),
                     p.getTitle(),
                     p.getEmail(),
