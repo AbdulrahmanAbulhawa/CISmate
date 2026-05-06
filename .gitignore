@@ -4,11 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# Don't commit secrets
-runner/src/main/resources/application.properties
-runner/src/main/resources/application.yml
-runner/src/main/resources/application-*.properties
-runner/src/main/resources/application-*.yml
+# Don't commit local secrets
+runner/src/main/resources/application-local.properties
+runner/src/main/resources/application-local.yml
 
 ### STS ###
 .apt_generated
