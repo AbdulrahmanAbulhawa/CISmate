@@ -35,3 +35,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# React frontend
+cismate-frontend/node_modules/
+cismate-frontend/dist/
+cismate-frontend/.env
+cismate-frontend/.env.local
+cismate-frontend/.env.*.local
