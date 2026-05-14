@@ -1,0 +1,13 @@
+.git
+.gitignore
+.env
+
+**/target
+**/.mvn
+**/node_modules
+**/dist
+
+cismate-frontend/node_modules
+cismate-frontend/dist
+
+*.log
